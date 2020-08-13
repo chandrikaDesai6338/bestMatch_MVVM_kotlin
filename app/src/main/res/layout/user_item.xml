@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userViewModel"
+            type="com.chan.marriagepraposals.UserViewModel" />
+
+        <variable
+            name="user"
+            type="com.chan.marriagepraposals.db.User" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/large"
+        android:paddingVertical="@dimen/normal"
+        android:elevation="@dimen/xsmall"
+        android:layout_marginVertical="@dimen/normal"
+        android:layout_marginHorizontal="@dimen/large"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/IvProfilePic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal"
+                android:layout_toRightOf="@id/IvProfilePic"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.name}"
+                    android:textSize="@dimen/text_xnormal"
+                    android:textStyle="bold"
+                    tools:text="Prachi Wadhwa" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.address}"
+                    android:textSize="@dimen/text_normal"
+                    tools:text="Mumbai" />
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{user.age + " yrs"}'
+                    android:textSize="@dimen/text_normal"
+                    tools:text="age : 25" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{user.email}"
+                    android:textSize="@dimen/text_normal"
+                    tools:text="email : prachiwadhwa@gmail.com" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                tools:text="accepted"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llActionButtons"
+            style="@style/ActionButtonParent"
+            android:layout_marginTop="@dimen/normal">
+
+            <Button
+                android:id="@+id/btnDecline"
+                style="@style/AccentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decline" />
+
+            <Button
+                android:id="@+id/btnAccept"
+                style="@style/AccentButton"
+                android:layout_marginStart="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/accept" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

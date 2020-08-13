@@ -1,0 +1,5 @@
+<resources>
+    <string name="best_match">Best Match</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+</resources>

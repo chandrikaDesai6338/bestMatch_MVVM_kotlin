@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="xsmall">4dp</dimen>
+    <dimen name="small">6dp</dimen>
+    <dimen name="normal">8dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_xnormal">16sp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+</resources>
