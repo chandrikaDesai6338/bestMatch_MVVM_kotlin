@@ -1,6 +1,10 @@
 package com.chan.marriagepraposals.ui
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -15,6 +19,7 @@ import com.chan.marriagepraposals.util.Constants.Companion.ACCEPTED
 import com.chan.marriagepraposals.util.Constants.Companion.DECLINED
 import com.chan.marriagepraposals.util.Constants.Companion.RESULT_COUNT
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: UserViewModel
@@ -28,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         performDataBinding()
         viewModel.setDBInstance(appDatabase)
+        binding.pbLoading.visibility = VISIBLE
         observeLiveData()
         viewModel.getUserDataServer(RESULT_COUNT)
     }
@@ -39,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     fun observeLiveData() {
         viewModel.usersLiveData.observe(this, Observer { users ->
+            binding.pbLoading.visibility = GONE
             initView(users)
         })
     }
@@ -65,4 +72,5 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         destroyDBInstance()
     }
+
 }
