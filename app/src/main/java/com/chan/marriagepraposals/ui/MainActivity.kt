@@ -9,6 +9,7 @@ import com.chan.marriagepraposals.R
 import com.chan.marriagepraposals.UserViewModel
 import com.chan.marriagepraposals.databinding.ActivityMainBinding
 import com.chan.marriagepraposals.db.AppDatabase
+import com.chan.marriagepraposals.db.AppDatabase.Companion.destroyDBInstance
 import com.chan.marriagepraposals.db.User
 import com.chan.marriagepraposals.util.Constants.Companion.ACCEPTED
 import com.chan.marriagepraposals.util.Constants.Companion.DECLINED
@@ -58,5 +59,10 @@ class MainActivity : AppCompatActivity() {
             }
         adapter = UserRecyclerViewAdapter(users, onItemClickListener)
         binding.rvUser.adapter = adapter
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        destroyDBInstance()
     }
 }

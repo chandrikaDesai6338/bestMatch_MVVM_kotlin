@@ -86,7 +86,6 @@ class UserViewModel() : ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread(), true)
                 .subscribeWith(object : DisposableSubscriber<List<User>>() {
                     override fun onComplete() {
-                        TODO("Not yet implemented")
                     }
 
                     override fun onNext(users: List<User>?) {
@@ -95,7 +94,7 @@ class UserViewModel() : ViewModel() {
                     }
 
                     override fun onError(t: Throwable?) {
-                        TODO("Not yet implemented")
+                        Log.d("UserViewModel", "Error receiving Data from DB")
                     }
 
                 }) as Disposable

@@ -13,6 +13,9 @@ interface UserDao {
     @Query("SELECT * FROM user")
     fun getAll(): Flowable<List<User>>
 
+    @Query("SELECT * FROM user WHERE name LIKE :name")
+    fun findUserByName(name : String) : Flowable<User>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(users: User) : Completable
 
